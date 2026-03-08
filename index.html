@@ -139,6 +139,68 @@ https://templatemo.com/tm-538-digital-trend
                       </div>
                       <div class="about-info">
                         <h2 class="mb-4" data-aos="fade-up">
+                              8 March 2026
+                              <br>
+                              The Ghost in the Machine
+                         </h2>
+                              <p class="mb-0" data-aos="fade-up">
+
+                                   <ul><strong>How a Single Rendering Setting Almost Wrecked My Project</strong>
+                                   <br>
+                                   It’s been a minute since the last update (okay, maybe more than a minute) 
+                                   We’ve all been there. You’re feeling productive, you decide to merge a major feature (in my case, the Gameplay Ability System (GAS)) and suddenly, the house of cards collapses.
+
+                                   But this wasn't just a merge conflict. This was more.</ul>
+
+                                   <ul><strong>The "Simple" Merge</strong>
+                                   <br>
+                                   It started simply enough. I merged my GAS project into my main build. 
+                                   Then things went wrong. It turns out I had some name collisions between 
+                                   my GAS Blueprints and my main project.
+                                   <br>
+                                   Lesson 1: Always namespace your Blueprints. "BP_Character" is a landmine waiting to go off.
+                                   I've just started using Git so no problem. I rolled back. But testing showed my simple VR mode was still ghosting. Panic set in. Then I checked my main FPS mode. Also broken.
+                                   <br>
+                                   <strong>The Backup Paradox</strong>
+                                   At this point, I did what any sane developer does: I went to my pre Git zip backups. My own project hail mary of known working code.
+                                   <br>
+                                   They were broken too.
+                                   <br>
+                                   My VR mode was ghosting everywhere. If the bug exists in the zip file from three months ago that hasn't been touched, I stopped questioning my code and started questioning reality.
+                                   <br>
+                                   <strong>The Two-Hour Rabbit Hole</strong>
+                                   <br>
+                                   I spent two hours debugging old backups. I was convinced It was working back then but started questioning myself.
+                                   Even getting the zips working was a pain. In the end I had to temp move my plugins to get the project to open, add some pretend C class then re add the plugins folder, the I could generate the code files.
+                                   <br>
+                                   Finally, after all that, I found the culprit: Temporal Super Resolution (TSR).
+                                   <br>
+                                   For some reason perhaps a global engine update or a project setting sync during the merge TSR had toggled itself on.
+                                   <br>
+                                   The Fix
+                                   <br>
+                                   I swapped the Anti Aliasing method back to MSAA (which, for some reason then displayed as None but functioned perfectly).
+                                   <br>
+                                   Immediately:
+                                   <br>
+                                   VR stopped ghosting.
+                                   <br>
+                                   The FPS mode is still messed up from the merge or something.
+                                   <br>
+                                   The Real Lesson
+                                   <br>
+                                   If a bug is haunting your old backups, stop debugging your Blueprints and start hunting for hidden Engine setting overrides.
+                                   <br>
+                                   It’s easy to assume a merge "broke" your logic, but sometimes the merge just triggers a change in how the engine handles the pixels. Now it’s time to head back into the diffs and see what else that GAS merge touched.
+                                   <br>
+                                   Have you ever had a project setting change "globally" and make you think your entire codebase was corrupted? Let me know in the comments! If I had comments, maybe someday.
+                                   </ul>
+                      </div>
+
+
+                      </div>
+                      <div class="about-info">
+                        <h2 class="mb-4" data-aos="fade-up">
                               Another overdue update
                          </h2>
                               <p class="mb-0" data-aos="fade-up">
